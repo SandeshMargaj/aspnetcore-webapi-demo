@@ -24,7 +24,7 @@ namespace my_books_test
         }
 
 
-        [Test]
+        [Test, Order(1)]
         public void GetAllPublishers_ReturnsPublisherList()
         {
             var result = publishersService.GetAllPublishers();
@@ -34,7 +34,7 @@ namespace my_books_test
             Assert.That(result.Count, Is.EqualTo(3));
         }
 
-        [Test]
+        [Test, Order(2)]
         public void GetPublisherById_ValidIdPassed_ReturnsPublisher()
         {
             var publisher = publishersService.GetPublisherById(2);
@@ -43,7 +43,7 @@ namespace my_books_test
             Assert.That(publisher.Name, Is.EqualTo("Publisher 2"));
         }
 
-        [Test]
+        [Test, Order(3)]
         public void GetPublisherById_InValidIdPassed_ReturnsNull()
         {
             var publisher = publishersService.GetPublisherById(0);
@@ -51,7 +51,7 @@ namespace my_books_test
             Assert.That(publisher, Is.Null);
         }
 
-        [Test]
+        [Test, Order(4)]
         public void AddPublisher_ValidPublisherPassed_AddsPublisherToDB()
         {
 
@@ -66,7 +66,7 @@ namespace my_books_test
 
         }
 
-        [Test]
+        [Test, Order(5)]
         public void AddPublisher_InValidPublisherPassed_RaisesException()
         {
             var newPublisher = new PublisherVM()
